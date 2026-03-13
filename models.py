@@ -2,7 +2,7 @@
 from datetime import datetime
 from collections import deque
 
-
+# Patient class - represents a single patient registered at the clinic
 class Patient:
     """Represents a patient registered at the clinic."""
 
