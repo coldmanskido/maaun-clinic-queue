@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Patient History — MAAUN Clinic{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>📜 Patients Seen Today</h1>
+    <a href="/" class="btn btn-primary">← Back to Dashboard</a>
+</div>
+
+<div class="card">
+    <h2>✅ Seen Patients — Total: {{ seen_today }}</h2>
+
+    {% if seen %}
+    <table>
+        <thead>
+            <tr>
+                <th>Ticket</th>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Complaint</th>
+                <th>Registered At</th>
+                <th>Seen At</th>
+                <th>Wait Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in seen %}
+            <tr>
+                <td><span class="ticket">#{{ r.ticket }}</span></td>
+                <td><strong>{{ r.name }}</strong></td>
+                <td>{{ r.age }}</td>
+                <td>{{ r.complaint }}</td>
+                <td>{{ r.registered_at }}</td>
+                <td>{{ r.seen_at }}</td>
+                <td>{{ r.total_wait_minutes }} min</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="empty">No patients have been seen yet today.</p>
+    {% endif %}
+</div>
+{% endblock %}

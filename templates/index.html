@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — MAAUN Clinic Queue{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>📋 Today's Dashboard</h1>
+    <a href="/register" class="btn btn-success">+ Register New Patient</a>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+    <div class="stat waiting">
+        <div class="num">{{ waiting_count }}</div>
+        <div class="label">Currently Waiting</div>
+    </div>
+    <div class="stat seen">
+        <div class="num">{{ seen_today }}</div>
+        <div class="label">Patients Seen Today</div>
+    </div>
+    <div class="stat total">
+        <div class="num">{{ total_today }}</div>
+        <div class="label">Total Registered Today</div>
+    </div>
+</div>
+
+<!-- Waiting Queue -->
+<div class="card">
+    <h2>🪑 Current Waiting Queue <small style="font-weight:400;color:#718096;">(First-In, First-Out)</small></h2>
+
+    {% if waiting %}
+    <table>
+        <thead>
+            <tr>
+                <th>Ticket</th>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Complaint</th>
+                <th>Registered At</th>
+                <th>Waiting</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in waiting %}
+            <tr>
+                <td><span class="ticket">#{{ p.ticket }}</span></td>
+                <td><strong>{{ p.name }}</strong></td>
+                <td>{{ p.age }}</td>
+                <td>{{ p.complaint }}</td>
+                <td>{{ p.registered_at }}</td>
+                <td>{{ p.waiting_minutes }} min</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="empty">✅ No patients currently waiting.</p>
+    {% endif %}
+
+    {% if waiting %}
+    <div style="margin-top:1.2rem;">
+        <form action="/call-next" method="POST">
+            <button type="submit" class="btn btn-warning">
+                🔔 Call Next Patient (Ticket #{{ waiting[0].ticket }})
+            </button>
+        </form>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Recently Seen (Stack preview) -->
+<div class="card">
+    <h2>✅ Recently Seen Patients <small style="font-weight:400;color:#718096;">(last 5)</small></h2>
+
+    {% if recently_seen %}
+    <table>
+        <thead>
+            <tr>
+                <th>Ticket</th>
+                <th>Patient Name</th>
+                <th>Complaint</th>
+                <th>Registered At</th>
+                <th>Seen At</th>
+                <th>Total Wait</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in recently_seen %}
+            <tr>
+                <td><span class="ticket">#{{ r.ticket }}</span></td>
+                <td>{{ r.name }}</td>
+                <td>{{ r.complaint }}</td>
+                <td>{{ r.registered_at }}</td>
+                <td>{{ r.seen_at }}</td>
+                <td>{{ r.total_wait_minutes }} min</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="margin-top:.8rem;">
+        <a href="/history" class="btn btn-primary">View Full History →</a>
+    </div>
+    {% else %}
+        <p class="empty">No patients seen yet today.</p>
+    {% endif %}
+</div>
+{% endblock %}
