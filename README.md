@@ -100,3 +100,7 @@ You should see the clinic dashboard! 🎉
 ## Data Structures Used
 - Queue (FIFO) using collections.deque for the waiting list
 - Stack (LIFO) using Python list for seen patients history
+## OOP Classes
+- Patient - stores patient info and wait time
+- SeenRecord - stores record of attended patients
+- ClinicQueue - manages the queue and stack logic
