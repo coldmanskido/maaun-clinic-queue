@@ -1,3 +1,4 @@
+# models.py - Contains all OOP classes for the Clinic Queue App
 from datetime import datetime
 from collections import deque
 
