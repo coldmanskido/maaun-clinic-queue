@@ -23,6 +23,7 @@ def index():
 
 
 # ── Route 2: Register a New Patient ──────────────────────────────────────────
+# Register route - GET shows form, POST adds new patient to queue
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
