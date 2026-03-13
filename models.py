@@ -61,6 +61,8 @@ class SeenRecord:
         }
 
 
+
+# ClinicQueue - manages all patients using FIFO Queue (deque) and LIFO Stack
 class ClinicQueue:
     """
     Manages the clinic's patient queue using a FIFO Queue (deque).
