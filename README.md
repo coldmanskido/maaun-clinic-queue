@@ -1,4 +1,5 @@
 # 🏥 MAAUN Clinic Queue Manager 
+Built for COS 202 Assignment 4 at MAAUN
 
 A Flask web application that manages patient queues at a health clinic. Built for **COS 202 — Assignment 4** at Maryam Abacha American University of Nigeria (MAAUN).
 
