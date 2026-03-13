@@ -1,5 +1,9 @@
 # 🏥 MAAUN Clinic Queue Manager 
 Built for COS 202 Assignment 4 at MAAUN
+## How to Run
+1. Install Flask: pip install Flask
+2. Run the app: python app.py
+3. Open browser and go to http://127.0.0.1:5000
 
 A Flask web application that manages patient queues at a health clinic. Built for **COS 202 — Assignment 4** at Maryam Abacha American University of Nigeria (MAAUN).
 
