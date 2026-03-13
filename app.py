@@ -55,6 +55,7 @@ def register():
 
 
 # ── Route 3: Call Next Patient (action) ──────────────────────────────────────
+# Call next - pops first patient from queue using FIFO (deque.popleft)
 @app.route("/call-next", methods=["POST"])
 def call_next():
     record = clinic.call_next_patient()
