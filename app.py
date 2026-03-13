@@ -7,6 +7,7 @@ app.secret_key = "clinic-secret-key-2026"
 
 
 # ── Route 1: Home / Dashboard ─────────────────────────────────────────────────
+# Home route - shows dashboard with live queue and today's stats
 @app.route("/")
 def index():
     waiting = clinic.get_waiting_list()
