@@ -71,6 +71,7 @@ def call_next():
 
 
 # ── Route 4: Seen Patients History ───────────────────────────────────────────
+# History route - displays all patients seen today from the stack
 @app.route("/history")
 def history():
     all_seen = clinic.get_last_seen(50)
