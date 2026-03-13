@@ -1,3 +1,4 @@
+# app.py - Flask web app routes for MAAUN Clinic Queue Manager
 from flask import Flask, render_template, request, redirect, url_for, flash
 from models import clinic
 
