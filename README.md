@@ -1,3 +1,4 @@
+MAAUN/24/CSC/0028
 # 🏥 MAAUN Clinic Queue Manager 
 Built for COS 202 Assignment 4 at MAAUN
 ## How to Run
@@ -96,7 +97,7 @@ You should see the clinic dashboard! 🎉
 ---
 
 ## Author
-**[Dawud Munir Aliyu]** — COS 202, MAAUN, 2026
+**[Dawud Munir Aliyu MAAUN/24/CSC/0028]** — COS 202, MAAUN, 2026
 ## Data Structures Used
 - Queue (FIFO) using collections.deque for the waiting list
 - Stack (LIFO) using Python list for seen patients history
